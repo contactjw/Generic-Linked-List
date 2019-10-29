@@ -43,6 +43,7 @@ public class LinkedList<T> {
 		}
 	}
 	
+	
 	public void reverse() {
 		Node<T> pointer = head;
 	    Node<T> previous = null, current = null;
@@ -67,7 +68,20 @@ public class LinkedList<T> {
 		// Create the linked lists
 		LinkedList<Integer> intList = new LinkedList<Integer>();
 		LinkedList<String> stringList = new LinkedList<String>();
+		LinkedList<Car> carList = new LinkedList<Car>();
+		
+		// Create new car objects
+		Car newCar1 = new Car(2014, "Toyota");
+		Car newCar2 = new Car(2002, "Dodge");
+		Car newCar3 = new Car(2019, "Honda");
+		
+		// Insert new car objects
+		carList.insertEnd(newCar1);
+		carList.insertEnd(newCar2);
+		carList.insertEnd(newCar3);
+		carList.printList();
 
+		
 		// insert random integers (0-100) into intList
 		for (int i = 0; i < 10; i++) {
 			int randInt = rand.nextInt(101); 
@@ -79,7 +93,7 @@ public class LinkedList<T> {
 		intList.printList();
 		
 		
-		// Tokenize the string
+		// Tokenize the string, insert the tokens, and print stringList
 		StringTokenizer myString = 
 	             new StringTokenizer("This is the string we are tokenizing!", " "); 
 	        while (myString.hasMoreTokens()) 
