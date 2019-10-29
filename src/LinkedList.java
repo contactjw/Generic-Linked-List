@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class LinkedList<T> {
 	Node<T> head;
@@ -19,6 +20,21 @@ public class LinkedList<T> {
 		}
 	}
 	
+	public void deleteAt(int index) {
+		if (index == 0) {
+			head = head.next;
+		} 
+		else {
+			Node current = head;
+			Node temp = null;
+			for (int i = 0; i < index - 2; i++) {
+				current = current.next;
+			}
+			temp = current.next;
+			current.next = temp.next;
+		}
+	}
+	
 	public void printList() {
 		Node<T> current = head;
 		while (current != null) {
@@ -27,21 +43,31 @@ public class LinkedList<T> {
 		}
 	}
 	
+
+	
 	public static void main(String[] args) {
-		LinkedList<Integer> myList = new LinkedList<Integer>();
+		// Needed for random integer generation
+		Random rand = new Random();  
 		
-		myList.insertEnd(1);
-		myList.printList();
-		myList.insertEnd(2);
-		myList.insertEnd(3);
-		myList.insertEnd(4);
-		myList.insertEnd(5);
-		myList.insertEnd(6);
-		myList.insertEnd(7);
-		myList.insertEnd(8);
-		myList.insertEnd(9);
-		myList.printList();
+		// Create the linked lists
+		LinkedList<Integer> intList = new LinkedList<Integer>();
+		LinkedList<String> stringList = new LinkedList<String>();
+
+		// insert random integers (0-100) into intList
+		for (int i = 0; i < 10; i++) {
+			int randInt = rand.nextInt(101); 
+			intList.insertEnd(randInt);
+		}
+		intList.printList();
 		
+		// Tokenize the string
+		StringTokenizer myString = 
+	             new StringTokenizer("This is the string we are tokenizing!", " "); 
+	        while (myString.hasMoreTokens()) 
+	            stringList.insertEnd(myString.nextToken());
+	    stringList.printList();
+		
+	    
 	}
 
 }
