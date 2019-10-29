@@ -2,7 +2,7 @@
 public class LinkedList<T> {
 	Node<T> head;
 	
-	public void insert (T value) {
+	public void insertEnd(T value) {
 		Node<T> newNode = new Node<T>();
 		Node<T> current = head;
 		newNode.data = value;
@@ -30,16 +30,16 @@ public class LinkedList<T> {
 	public static void main(String[] args) {
 		LinkedList<Integer> myList = new LinkedList<Integer>();
 		
-		myList.insert(1);
+		myList.insertEnd(1);
 		myList.printList();
-		myList.insert(2);
-		myList.insert(3);
-		myList.insert(4);
-		myList.insert(5);
-		myList.insert(6);
-		myList.insert(7);
-		myList.insert(8);
-		myList.insert(9);
+		myList.insertEnd(2);
+		myList.insertEnd(3);
+		myList.insertEnd(4);
+		myList.insertEnd(5);
+		myList.insertEnd(6);
+		myList.insertEnd(7);
+		myList.insertEnd(8);
+		myList.insertEnd(9);
 		myList.printList();
 		
 	}
