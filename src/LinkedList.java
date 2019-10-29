@@ -25,8 +25,8 @@ public class LinkedList<T> {
 			head = head.next;
 		} 
 		else {
-			Node current = head;
-			Node temp = null;
+			Node<T> current = head;
+			Node<T> temp = null;
 			for (int i = 0; i < index - 2; i++) {
 				current = current.next;
 			}
@@ -41,6 +41,21 @@ public class LinkedList<T> {
 			System.out.println(current.data);
 			current = current.next;
 		}
+	}
+	
+	public void reverse() {
+		Node<T> pointer = head;
+	    Node<T> previous = null, current = null;
+
+	    while (pointer != null) {
+	      current = pointer;
+	      pointer = pointer.next;
+
+	      // reverse the link
+	      current.next = previous;
+	      previous = current;
+	      head = current;
+	    }
 	}
 	
 
@@ -59,6 +74,10 @@ public class LinkedList<T> {
 			intList.insertEnd(randInt);
 		}
 		intList.printList();
+		System.out.println("Reversing the integer list!\n");
+		intList.reverse();
+		intList.printList();
+		
 		
 		// Tokenize the string
 		StringTokenizer myString = 
